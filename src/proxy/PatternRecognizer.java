@@ -19,15 +19,14 @@ public class PatternRecognizer {
                 System.out.println("Interface method: " + interfaceMethod);
             }
             // Check if the classes implement the same interface
-            else if(cl.getInterfaces()[0].getName().equals(interfaceName)){
+            else if(cl.getInterfaces()[0].getName().equals(interfaceName))
                 return false;
-            }
         }
 
         // If there isn't an abstract class, it's not Proxy
         if(interfaceMethod.equals(""))
             return false;
-        
+
 
         for(Class cl : classes){
             System.out.println("Class name:" + cl.getCanonicalName());

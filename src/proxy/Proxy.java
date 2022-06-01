@@ -39,9 +39,7 @@ public class Proxy {
 
         
         public void getName() {
-            if(realClass == null){
-                realClass = new RealClass(name);
-            }
+            if(realClass == null) realClass = new RealClass(name);
 
             realClass.getName();
         }
