@@ -1,5 +1,7 @@
 package proxy;
 
+import java.lang.reflect.AnnotatedType;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 
 public class PatternRecognizer {
@@ -45,5 +47,27 @@ public class PatternRecognizer {
 
         }
         return true;
+    }
+    public static boolean ClaseSingleton(Class clase){
+        // Obtener Metodos
+        Method[] methods = clase.getDeclaredMethods();
+        try { // se intenta obtener el constructor
+            System.out.println("El constructor " + clase.getConstructor().getName() + " es publico");
+            return false;
+        } catch (NoSuchMethodException e) {
+            System.out.println("\nConstructor Privado, Clase: "+clase.getName());
+        }
+        for(Method m : methods){
+            // Se comprueba si el retorno es del tipo de la clase
+            if (!m.getAnnotatedReturnType().toString().equals(clase.getName())) return false;
+        }
+        return true;
+    }
+    public static boolean isSingleton(Class c){
+        // Comprueba si alguna clase es Singleton
+        Class[] clases = c.getClasses();
+        for (Class clase : clases)
+            if(ClaseSingleton(clase)) return  true;
+        return false;
     }
 }
