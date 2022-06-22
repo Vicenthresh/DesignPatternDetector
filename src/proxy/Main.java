@@ -4,13 +4,6 @@
  * and open the template in the editor.
  */
 package proxy;
-
-import proxy.Proxy.*;
-import proxy.Singleton.*;
-import java.lang.reflect.Method;
-
-import static proxy.PatternRecognizer.isProxy;
-import static proxy.PatternRecognizer.isSingleton;
 import static proxy.filechooser.createAndShowGUI;
 
 /**
