@@ -54,11 +54,9 @@ public class PatternRecognizer {
         // Obtener Metodos
         Method[] methods = clase.getDeclaredMethods();
         try { // se intenta obtener el constructor
-            System.out.println("El constructor " + clase.getConstructor().getName() + " es publico");
+           clase.getConstructor().getName();
             return false;
-        } catch (NoSuchMethodException e) {
-            System.out.println("\nConstructor Privado, Clase: "+clase.getName());
-        }
+        } catch (NoSuchMethodException e) {  }
         for(Method m : methods){
             // Se comprueba si el retorno es del tipo de la clase
             if (!m.getAnnotatedReturnType().toString().equals(clase.getName())) return false;
